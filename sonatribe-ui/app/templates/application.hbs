@@ -1,0 +1,21 @@
+<div class="container fill">
+  {{#if session.isAuthenticated}}
+    <button class="menu-button" id="open-button">Open Menu</button>
+    {{sonatribe-menu}}
+  {{else}}
+    {{sonatribe-login authenticateGoogle="authenticateGoogle" authenticateFacebook="authenticateFacebook" store=store}}
+  {{/if}}
+
+  <div class="content-wrap fill">
+    <div class="content">
+      <section>
+        <p>
+          {{#unless session.isAuthenticated}}
+            <button id="trigger-overlay" type="button">Login/Register</button>
+          {{/unless}}
+          {{outlet}}
+        </p>
+      </section>
+    </div>
+  </div>
+</div>

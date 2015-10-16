@@ -1,0 +1,36 @@
+{{yield}}
+<div class="container">
+  <div class="page-header">
+    <h2>User Registration</h2>
+  </div>
+  {{#if registrationSent}}
+    <p class='registration-sent'>check your email!</p>
+  {{else}}
+  <form {{action 'createUser' model on='submit' }}>
+    <div class="form-group">
+      <label for="firstName">Username</label>
+      {{input id='username' placeholder='Enter your Username' class='form-control' value=username}}
+      {{#if usernameInUse}}
+        <p id="login-account-email-errors" class="errors text-danger">
+          This username is use, please try another one
+          <br /> or did you want to
+          {{!--{{#link-to 'login'}}log in{{/link-to}}--}}?
+        </p>
+      {{/if}}
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      {{input id='email' placeholder='Enter your email' type='email' class='form-control' value=identification}}
+      {{#if emailInUse}}
+        <p id="login-account-email-errors" class="errors text-danger">
+          This email address is use, please try another one
+          <br /> or did you want to
+          {{!--{{#link-to 'login'}}log in{{/link-to}}--}}?
+        </p>
+      {{/if}}
+    </div>
+
+    <button type="submit" class="btn btn-default" id="register-button">Register</button>
+  </form>
+  {{/if}}
+</div>

@@ -1,0 +1,9 @@
+<button type="button" class="overlay-close">Close</button>
+<nav>
+{{#if showLogin}}
+  {{login-panel authenticateGoogle="authenticateGoogle" authenticateFacebook="authenticateFacebook" toggleLogin="toggleLogin"}}
+{{else}}
+  {{register-panel authenticateGoogle="authenticateGoogle" authenticateFacebook="authenticateFacebook" toggleLogin="toggleLogin" store=store}}
+{{/if}}
+{{yield}}
+</nav>
